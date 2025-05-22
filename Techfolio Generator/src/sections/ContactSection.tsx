@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FiMail, FiPhone, FiMapPin, FiGithub, FiSend } from 'react-icons/fi';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiSend } from "react-icons/fi";
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -10,16 +10,18 @@ const ContactSection = () => {
   });
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -27,21 +29,21 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      setSubmitMessage('Thanks for your message! I will get back to you soon.');
+      setSubmitMessage("Thanks for your message! I will get back to you soon.");
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
       });
-      
+
       // Clear success message after 5 seconds
       setTimeout(() => {
-        setSubmitMessage('');
+        setSubmitMessage("");
       }, 5000);
     }, 1500);
   };
@@ -54,27 +56,27 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: <FiMail />,
-      title: 'Email',
-      value: 'kplcm27@gmail.com',
-      link: 'mailto:kplcm27@gmail.com',
+      title: "Email",
+      value: "kplcm27@gmail.com",
+      link: "mailto:kplcm27@gmail.com",
     },
     {
       icon: <FiPhone />,
-      title: 'Phone',
-      value: '+91 7775882602',
-      link: 'tel:+917775882602',
+      title: "Phone",
+      value: "+91 7775882602",
+      link: "tel:+917775882602",
     },
     {
       icon: <FiMapPin />,
-      title: 'Location',
-      value: 'Amravati, Maharashtra',
-      link: 'https://maps.google.com/?q=Amravati,Maharashtra',
+      title: "Location",
+      value: "Amravati, Maharashtra",
+      link: "https://maps.google.com/?q=Amravati,Maharashtra",
     },
     {
       icon: <FiGithub />,
-      title: 'GitHub',
-      value: 'github.com/kpl-2704',
-      link: 'https://github.com/kpl-2704',
+      title: "GitHub",
+      value: "github.com/kpl-2704",
+      link: "https://github.com/kpl-2704",
     },
   ];
 
@@ -84,7 +86,7 @@ const ContactSection = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          animate={inView ? "visible" : "hidden"}
           variants={{
             hidden: {},
             visible: {
@@ -97,14 +99,17 @@ const ContactSection = () => {
           <motion.div variants={fadeIn} className="text-center mb-16">
             <h2 className="section-heading">Get In Touch</h2>
             <p className="text-slate-400 max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? Feel free to reach out.
+              Have a project in mind or want to collaborate? Feel free to reach
+              out.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <motion.div variants={fadeIn} className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-              
+              <h3 className="text-2xl font-bold mb-6 text-white">
+                Contact Information
+              </h3>
+
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <a
@@ -118,15 +123,19 @@ const ContactSection = () => {
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-white mb-1">{info.title}</h4>
+                      <h4 className="text-lg font-medium text-white mb-1">
+                        {info.title}
+                      </h4>
                       <p className="text-slate-400">{info.value}</p>
                     </div>
                   </a>
                 ))}
               </div>
-              
+
               <div className="mt-8">
-                <h3 className="text-lg font-semibold mb-4 text-white">Available For</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">
+                  Available For
+                </h3>
                 <div className="flex flex-wrap gap-3">
                   <span className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">
                     Full-time Positions
@@ -143,18 +152,23 @@ const ContactSection = () => {
 
             <motion.div variants={fadeIn} className="lg:col-span-3">
               <div className="card h-full">
-                <h3 className="text-2xl font-bold mb-6 text-white">Send a Message</h3>
-                
+                <h3 className="text-2xl font-bold mb-6 text-white">
+                  Send a Message
+                </h3>
+
                 {submitMessage ? (
                   <div className="bg-green-500/10 text-green-400 p-4 rounded-lg mb-6">
                     {submitMessage}
                   </div>
                 ) : null}
-                
+
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-slate-300 mb-1"
+                      >
                         Name
                       </label>
                       <input
@@ -168,7 +182,10 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-slate-300 mb-1"
+                      >
                         Email
                       </label>
                       <input
@@ -182,9 +199,12 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="mb-4">
-                    <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-1">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-slate-300 mb-1"
+                    >
                       Subject
                     </label>
                     <input
@@ -197,9 +217,12 @@ const ContactSection = () => {
                       className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     />
                   </div>
-                  
+
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-slate-300 mb-1"
+                    >
                       Message
                     </label>
                     <textarea
@@ -212,7 +235,7 @@ const ContactSection = () => {
                       className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white resize-none"
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}

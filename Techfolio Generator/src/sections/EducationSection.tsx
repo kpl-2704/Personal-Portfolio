@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FiBookOpen, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiBookOpen, FiCalendar, FiMapPin } from "react-icons/fi";
 
 const EducationSection = () => {
   const [ref, inView] = useInView({
@@ -15,18 +15,20 @@ const EducationSection = () => {
 
   const education = [
     {
-      degree: 'Bachelor of Engineering',
-      institution: 'Prof. Ram Meghe Institute of Technology & Research',
-      location: 'Amravati',
-      period: '2017 – 2022',
-      description: 'Applied engineering discipline to master modern web technologies and user-centric solutions.',
+      degree: "Bachelor of Engineering",
+      institution: "Prof. Ram Meghe Institute of Technology & Research",
+      location: "Amravati",
+      period: "2017 – 2022",
+      description:
+        "Applied engineering discipline to master modern web technologies and user-centric solutions.",
     },
     {
-      degree: 'Full Stack Development',
-      institution: 'Newton School',
-      location: 'Remote',
-      period: 'Mar 2022 – Oct 2022',
-      description: 'Intensive bootcamp covering modern web development technologies and practices.',
+      degree: "Full Stack Development",
+      institution: "Newton School",
+      location: "Remote",
+      period: "Mar 2022 – Oct 2022",
+      description:
+        "Intensive bootcamp covering modern web development technologies and practices.",
     },
   ];
 
@@ -36,7 +38,7 @@ const EducationSection = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          animate={inView ? "visible" : "hidden"}
           variants={{
             hidden: {},
             visible: {
@@ -68,7 +70,9 @@ const EducationSection = () => {
                       </div>
                     </div>
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold mb-1 text-white">{item.degree}</h3>
+                      <h3 className="text-xl font-bold mb-1 text-white">
+                        {item.degree}
+                      </h3>
                       <h4 className="text-lg font-medium mb-3 text-blue-400">
                         {item.institution}
                       </h4>
