@@ -1,10 +1,27 @@
-## Techfolio Generator
+# 💼 Kapil Madankar – Frontend Developer Portfolio
 
-This app was created using https://getmocha.com.
-Need help or want to join the community? Join our [Discord](https://discord.gg/shDEGBSe2d).
+Welcome to my personal frontend portfolio project, built using **React**, **Vite**, **TypeScript**, and **Tailwind CSS**.
 
-To run the devserver:
-```
-npm install
-npm run dev
-```
+---
+
+## 🚀 Live Preview
+
+🌐 [Live Demo](https://your-portfolio-url.com)
+
+---
+
+## 📁 Folder Structure
+
+```bash
+Techfolio Generator/
+├── node_modules/              # Dependencies
+├── public/                    # Static assets
+├── src/                       # Source code
+│   └── Kapil_Madankar_Frontend_Resume.pdf
+├── index.html                 # Entry HTML
+├── package.json               # Project metadata
+├── tailwind.config.js         # Tailwind CSS config
+├── postcss.config.js          # PostCSS config
+├── tsconfig.json              # TypeScript config
+├── vite.config.ts             # Vite config with TS
+└── README.md                  # This file
