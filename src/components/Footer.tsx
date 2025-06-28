@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
               <FiGithub size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/"
+              href="https://www.linkedin.com/in/kapil-madankar-8330a1220"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors duration-300"
@@ -51,7 +51,10 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-4 border-t border-slate-800 text-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Kapil Madankar. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Kapil Madankar. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

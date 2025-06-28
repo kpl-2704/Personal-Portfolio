@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiSend } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "../config/emailjs";
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -18,6 +20,9 @@ const ContactSection = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
+  const [messageType, setMessageType] = useState<"success" | "error">(
+    "success"
+  );
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,26 +31,55 @@ const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Initialize EmailJS with your public key
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: EMAILJS_CONFIG.TO_EMAIL,
+        }
+      );
+
+      if (result.status === 200) {
+        setMessageType("success");
+        setSubmitMessage(
+          "Thanks for your message! I will get back to you soon."
+        );
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setMessageType("error");
+      setSubmitMessage(
+        "Sorry, there was an error sending your message. Please try again or contact me directly at kplcm27@gmail.com"
+      );
+    } finally {
       setIsSubmitting(false);
-      setSubmitMessage("Thanks for your message! I will get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
 
       // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitMessage("");
       }, 5000);
-    }, 1500);
+    }
   };
 
   const fadeIn = {
@@ -157,7 +191,13 @@ const ContactSection = () => {
                 </h3>
 
                 {submitMessage ? (
-                  <div className="bg-green-500/10 text-green-400 p-4 rounded-lg mb-6">
+                  <div
+                    className={`p-4 rounded-lg mb-6 ${
+                      messageType === "success"
+                        ? "bg-green-500/10 text-green-400"
+                        : "bg-red-500/10 text-red-400"
+                    }`}
+                  >
                     {submitMessage}
                   </div>
                 ) : null}

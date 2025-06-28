@@ -59,11 +59,10 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* <button className="hidden md:block btn btn-outline"><a href='./Kapil_Madankar_Resume.pdf' download={true}>Resume</a></button> */}
           <button className="hidden md:block px-6 py-2 border-2 border-indigo-500 text-indigo-300 hover:bg-indigo-900/20 transition-all duration-300 rounded-lg font-medium group">
             <a
-              href="/Kapil_Madankar_Frontend_Resume.pdf"
-              download={true}
+              href="/Kapil Madankar Resume.pdf"
+              download="Kapil_Madankar_Resume.pdf"
               className="flex items-center gap-2"
             >
               Download Resume
@@ -115,9 +114,13 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link to="#" className="btn btn-primary text-center">
+              <a
+                href="/Kapil Madankar Resume.pdf"
+                download="Kapil_Madankar_Resume.pdf"
+                className="btn btn-primary text-center"
+              >
                 Resume
-              </Link>
+              </a>
             </div>
           </div>
         </motion.div>

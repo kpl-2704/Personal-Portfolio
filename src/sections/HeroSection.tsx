@@ -46,7 +46,7 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4 mb-8">
               <a href="#contact" className="btn btn-primary">
-                Contact Me
+                Hire Me
               </a>
               <a
                 href="/resume.pdf"
@@ -93,10 +93,12 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 blur-2xl opacity-20 animate-pulse"></div>
               <div className="relative bg-slate-800 border-4 border-slate-700 rounded-full h-80 w-80 flex items-center justify-center overflow-hidden">
-                <div className="relative z-10 text-8xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-                  KM
-                </div>
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1545665277-5937489579f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] opacity-10 mix-blend-overlay"></div>
+                <img
+                  src="/profile-image.webp"
+                  alt="Kapil Madankar"
+                  className="w-full h-full object-cover rounded-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
               </div>
             </div>
           </motion.div>
@@ -106,13 +108,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+          className="absolute bottom-3 left-1/2 -translate-x-1/2 text-center mt-9"
         >
           <a
             href="#about"
-            className="flex flex-col items-center text-slate-400 hover:text-blue-400 transition-colors duration-300"
+            className="flex flex-col mt-12 items-center text-slate-400 hover:text-blue-400 transition-colors duration-300"
           >
-            <span className="text-sm mb-2">Scroll Down</span>
+            <span className="text-sm ">Scroll Down</span>
             <FiArrowDown className="animate-bounce" />
           </a>
         </motion.div>
