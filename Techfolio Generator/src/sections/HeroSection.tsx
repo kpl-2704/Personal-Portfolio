@@ -35,7 +35,7 @@ const HeroSection = () => {
               />
             </div>
             <p className="text-lg text-slate-300 mb-8 max-w-xl">
-              Frontend developer with 2+ years of experience building scalable UIs with React.js, 
+              Frontend developer with 3+ years of experience building scalable UIs with React.js, 
               Next.js, and Tailwind CSS. Passionate about creating beautiful, user-friendly interfaces.
             </p>
 
