@@ -49,7 +49,7 @@ const AboutSection = () => {
                   
                   <h3 className="text-xl font-semibold mb-4 text-white">Professional Summary</h3>
                   <p className="text-slate-300 mb-6">
-                    Frontend Developer with 2+ years of experience using React.js, Next.js, and Tailwind CSS to build scalable UIs.
+                    Frontend Developer with 3+ years of experience using React.js, Next.js, and Tailwind CSS to build scalable UIs.
                     Improved engagement by 40% and cut feature delivery time by 30% through performance-focused 
                     development and team collaboration.
                   </p>
@@ -62,7 +62,7 @@ const AboutSection = () => {
                       </div>
                       <div className="flex gap-2 mb-2">
                         <FiCode className="mt-1 text-blue-500" />
-                        <span>2+ Years of Experience</span>
+                        <span>3+ Years of Experience</span>
                       </div>
                       <div className="flex gap-2 mb-2">
                         <FiAward className="mt-1 text-blue-500" />
